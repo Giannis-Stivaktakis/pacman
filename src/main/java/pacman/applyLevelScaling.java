@@ -11,7 +11,7 @@ public class applyLevelScaling {
 
         if (null == m.difficulty) {
 
-            // HARD: 4,5,5 ghosts — speed +1 κάθε level
+            
             switch (m.level) {
                 case 1:
                     ghosts = 4;
@@ -24,12 +24,12 @@ public class applyLevelScaling {
                     break;
             }
 
-            speed = baseSpeed + (m.level - 1); // HARD: 3,4,5... (θα clamp-άρει)
+            speed = baseSpeed + (m.level - 1);
 
         } else switch (m.difficulty) {
 
             case EASY:
-                // EASY: 2,3,3 ghosts — speed σταθερό
+                // EASY:ghosts — speed
                 switch (m.level) {
                     case 1:
                         ghosts = 2;
@@ -45,7 +45,7 @@ public class applyLevelScaling {
                 break;
 
             case NORMAL:
-                // NORMAL: 3,4,4 ghosts — speed +1 μόνο στο level 3+
+                // NORMAL:ghosts — speed
                 switch (m.level) {
                     case 1:
                         ghosts = 3;
@@ -61,7 +61,7 @@ public class applyLevelScaling {
                 break;
 
             default:
-                // HARD: 4,5,5 ghosts — speed +1 κάθε level
+                // HARD:ghosts — speed
                 switch (m.level) {
                     case 1:
                         ghosts = 4;

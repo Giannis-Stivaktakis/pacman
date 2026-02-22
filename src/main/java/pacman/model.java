@@ -147,19 +147,19 @@ public class model extends JPanel implements ActionListener {
 
     private void playGame(Graphics2D g2d) {
 
-    // ✅ Level transition freeze + countdown
+    // Level transition freeze + countdown
     if (levelTransitionTicks > 0) {
         levelTransitionTicks--;
 
-        // σχεδίασε overlay (ή στο paintComponent – δες παρακάτω)
+        // draw overlay
         drawLevelTransitionOverlay(g2d);
 
-        // όταν μηδενίσει, ξεκινά το νέο level
+        // new level
         if (levelTransitionTicks == 0) {
             applyLevelScaling();
             initLevel();
         }
-        return; // παγώνει movement/AI
+        return; // 
     }
 
     if (dying) {
@@ -223,14 +223,14 @@ public class model extends JPanel implements ActionListener {
     // Level cleared
     score += 50;
 
-    level++; // ✅ ΜΟΝΟ ΜΙΑ ΦΟΡΑ
+    level++; 
 
     if (level > MAX_LEVELS) {
         state = GameState.WIN;
         return;
     }
 
-    // ✅ ξεκίνα transition για να φορτώσει το επόμενο level "ομαλά"
+    //transition για να φορτώσει το επόμενο level πιο ομαλά
     levelTransitionTicks = LEVEL_TRANSITION_TICKS;
     }
 
@@ -403,7 +403,7 @@ public class model extends JPanel implements ActionListener {
             repaint();
         } else {
             blinkCounter++;
-        repaint();  // μόνο repaint για overlay
+        repaint();
         }
     }
 }

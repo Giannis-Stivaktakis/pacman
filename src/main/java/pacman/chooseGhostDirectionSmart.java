@@ -23,11 +23,11 @@ public class chooseGhostDirectionSmart {
         // default target: pacman
         int tx = px, ty = py;
 
-        if (i == 1) { // ambush 4 tiles ahead
+        if (i == 1) { // 4 tiles ahead
             tx = m.clampTile(px + 4 * pdirx);
             ty = m.clampTile(py + 4 * pdiry);
 
-        } else if (i == 2) { // intercept 8 tiles ahead
+        } else if (i == 2) { // 8 tiles ahead
             tx = m.clampTile(px + 8 * pdirx);
             ty = m.clampTile(py + 8 * pdiry);
 
@@ -39,7 +39,7 @@ public class chooseGhostDirectionSmart {
             }
         }
 
-        // frightened: move away
+        // if frightened then move away
         boolean frightened = (m.powerTicks > 0);
 
         int best = 0;

@@ -4,36 +4,36 @@ public class updateBonusLifePellet {
 
     public static void updateBonusLifePellet(model m) {
 
-        if (m.level != 2 && m.level != 3) return; // μόνο στα level 2,3
+        if (m.level != 2 && m.level != 3) return; // only level 2,3
 
         if (m.bonusSpawnedThisLevel) {
 
-            // αν είναι ήδη πάνω στον χάρτη, μέτρα lifetime
+            
             if (m.bonusActiveTicks > 0) {
                 m.bonusActiveTicks--;
 
                 if (m.bonusActiveTicks == 0 && m.bonusPos >= 0) {
 
-                    // ✅ FIX: Βάλε DOT πίσω ΜΟΝΟ αν το BONUS_LIFE είναι ακόμα πάνω στο tile
+                    //Fix DOT
                     if ( (m.screenData[m.bonusPos] & model.BONUS_LIFE) != 0 ) {
                         m.screenData[m.bonusPos] =
                                 (short) ((m.screenData[m.bonusPos] & ~model.BONUS_LIFE) | model.DOT);
                     }
 
-                    // καθάρισμα θέσης bonus
+                    // clear 
                     m.bonusPos = -1;
                 }
             }
             return;
         }
 
-        // δεν έχει spawn-άρει ακόμα: μέτρα μέχρι να εμφανιστεί
+        // not spawn yet
         if (m.bonusSpawnDelayTicks > 0) {
             m.bonusSpawnDelayTicks--;
             return;
         }
 
-        // ώρα να εμφανιστεί: διάλεξε τυχαία κελί που έχει DOT και δεν έχει POWER
+        // time to spawn, choose random cell without DOT
         for (int tries = 0; tries < 200; tries++) {
 
             int pos = (int) (Math.random() * (m.N_BLOCKS * m.N_BLOCKS));
@@ -45,7 +45,7 @@ public class updateBonusLifePellet {
 
             if (hasDot && !hasPower && !hasBonusAlready) {
 
-                // Βγάζουμε το DOT για να μη "ξαναφανεί" όταν φαγωθεί το bonus
+                // remove DOT
                 m.screenData[pos] = (short) ((ch & ~model.DOT) | model.BONUS_LIFE);
 
                 m.bonusPos = pos;

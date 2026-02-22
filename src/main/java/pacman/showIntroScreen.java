@@ -24,11 +24,11 @@ public class showIntroScreen {
         int boxX = (m.SCREEN_SIZE - boxWidth) / 2;
         int boxY = (m.SCREEN_SIZE - boxHeight) / 2;
 
-        // Box background (σκούρο)
+        // Box background
         g2d.setColor(new Color(10, 10, 10, 235));
         g2d.fillRect(boxX, boxY, boxWidth, boxHeight);
 
-        // Retro border (διπλό)
+        // Retro border
         g2d.setColor(new Color(0, 255, 0));
         g2d.setStroke(new BasicStroke(2));
         g2d.drawRect(boxX, boxY, boxWidth, boxHeight);
@@ -60,7 +60,7 @@ public class showIntroScreen {
         int diffY = boxY + 70;
         g2d.drawString(diffLine, diffX, diffY);
 
-        // Menu text (monospaced για retro alignment)
+        // Menu text
         Font menuFont = new Font("Monospaced", Font.BOLD, 16);
         g2d.setFont(menuFont);
 
@@ -85,7 +85,7 @@ public class showIntroScreen {
             g2d.drawString(press, pressX, pressY);
         }
 
-        // Επαναφορά antialiasing
+        
         g2d.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING,
                              RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
     }

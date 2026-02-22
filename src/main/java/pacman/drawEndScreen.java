@@ -14,7 +14,7 @@ public class drawEndScreen {
         g2d.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING,
                              RenderingHints.VALUE_TEXT_ANTIALIAS_OFF);
 
-        // Overlay
+        //Overlay
         g2d.setColor(new Color(0, 0, 0, 210));
         g2d.fillRect(0, 0, m.SCREEN_SIZE, m.SCREEN_SIZE);
 
@@ -24,17 +24,17 @@ public class drawEndScreen {
         int boxX = (m.SCREEN_SIZE - boxWidth) / 2;
         int boxY = (m.SCREEN_SIZE - boxHeight) / 2;
 
-        // Box background
+        //Box background
         g2d.setColor(new Color(10, 10, 10, 235));
         g2d.fillRect(boxX, boxY, boxWidth, boxHeight);
 
-        // Double border
+        //Double border
         g2d.setColor(Color.GREEN);
         g2d.setStroke(new BasicStroke(2));
         g2d.drawRect(boxX, boxY, boxWidth, boxHeight);
         g2d.drawRect(boxX + 4, boxY + 4, boxWidth - 8, boxHeight - 8);
 
-        // ===== TITLE =====
+        //TITLE
         g2d.setFont(new Font("Monospaced", Font.BOLD, 28));
         FontMetrics fmTitle = g2d.getFontMetrics();
 
@@ -50,7 +50,7 @@ public class drawEndScreen {
         g2d.setColor(Color.GREEN);
         g2d.drawString(title, titleX, titleY);
 
-        // ===== SCORE =====
+        //SCORE
         g2d.setFont(new Font("Monospaced", Font.BOLD, 16));
         FontMetrics fm = g2d.getFontMetrics();
 
@@ -59,7 +59,7 @@ public class drawEndScreen {
         int scoreY = boxY + 95;
         g2d.drawString(scoreLine, scoreX, scoreY);
 
-        // ===== BLINKING OPTIONS (ΚΑΘΕΤΑ) =====
+        //BLINKING OPTIONS
         if ((m.blinkCounter / 18) % 2 == 0) {
 
             int lineSpacing = 28;

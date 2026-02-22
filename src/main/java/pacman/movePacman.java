@@ -13,12 +13,12 @@ public class movePacman {
 
             if ((ch & model.DOT) != 0) {
                 m.screenData[pos] = (short) (ch & ~model.DOT);
-                m.score += 10; // πόντοι για απλό pellet
+                m.score += 10; //pellet points
             }
 
             if ((ch & model.POWER) != 0) {
                 m.screenData[pos] = (short) (ch & ~model.POWER);
-                m.score += 50;               // πόντοι power pellet
+                m.score += 50;               //power pellet points
                 m.powerTicks = model.POWER_DURATION_TICKS; // ~7 sec
                 m.ghostsEatenInPower = 0;    // reset multiplier
             }
@@ -29,7 +29,7 @@ public class movePacman {
                 if (m.lives < model.MAX_LIVES) {
                     m.lives++;
                 }
-                m.score += 200; // προαιρετικά bonus πόντοι
+                m.score += 200; // bonus points
                 m.bonusPos = -1;
                 m.bonusActiveTicks = 0;
             }

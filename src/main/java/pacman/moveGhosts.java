@@ -11,9 +11,9 @@ public class moveGhosts {
 
         for (int i = 0; i < m.N_GHOSTS; i++) {
 
-            // =========================
-            // 1) Respawn delay handling
-            // =========================
+            // 
+            // Respawn delay handling
+            
             if (m.ghostRespawnTicks[i] > 0) {
                 m.ghostRespawnTicks[i]--;
 
@@ -27,20 +27,20 @@ public class moveGhosts {
                     m.ghostGraceTicks[i] = model.GHOST_SPAWN_GRACE_TICKS;
                 }
 
-                // όσο είναι "εκτός", δεν κινείται/δεν ζωγραφίζεται/δεν συγκρούεται
+                // όσο είναι εκτός δεν κινείται δεν ζωγραφίζεται δεν συγκρούεται
                 continue;
             }
 
-            // =========================
-            // 2) Spawn grace countdown
-            // =========================
+            
+            // Spawn countdown
+            
             if (m.ghostGraceTicks[i] > 0) {
                 m.ghostGraceTicks[i]--;
             }
 
-            // =========================
-            // 3) Choose direction on grid intersections
-            // =========================
+            
+            // Choose direction
+            
             if (m.ghost_x[i] % m.BLOCK_SIZE == 0 && m.ghost_y[i] % m.BLOCK_SIZE == 0) {
 
                 pos = m.ghost_x[i] / m.BLOCK_SIZE + m.N_BLOCKS * (m.ghost_y[i] / m.BLOCK_SIZE);
@@ -80,27 +80,27 @@ public class moveGhosts {
                         m.ghost_dy[i] = -m.ghost_dy[i];
                     }
                 } else {
-                    // ✅ SMART choice (replaces random)
+                    // SMART choice no random
                     m.chooseGhostDirectionByDifficulty(i, count, m.dx, m.dy);
                 }
             }
 
-            // =========================
-            // 4) Move + draw
-            // =========================
+            
+            // Move + draw
+            
             m.ghost_x[i] = m.ghost_x[i] + (m.ghost_dx[i] * m.ghostSpeed[i]);
             m.ghost_y[i] = m.ghost_y[i] + (m.ghost_dy[i] * m.ghostSpeed[i]);
 
             m.drawGhost(g2d, m.ghost_x[i] + 1, m.ghost_y[i] + 1, i);
 
-            // =========================
-            // 5) Collision with Pacman
-            // =========================
+           
+            //Collision with Pacman
+            
             if (m.pacman_x > (m.ghost_x[i] - 12) && m.pacman_x < (m.ghost_x[i] + 12)
                     && m.pacman_y > (m.ghost_y[i] - 12) && m.pacman_y < (m.ghost_y[i] + 12)
                     && m.state == model.GameState.RUNNING) {
 
-                // ✅ anti spawn-kill + anti exploit
+                // anti spawn-kill + anti exploit
                 if (m.ghostGraceTicks[i] > 0) {
                     continue;
                 }

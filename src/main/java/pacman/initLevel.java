@@ -4,7 +4,7 @@ public class initLevel {
 
     public static void initLevel(model m) {
 
-        // 1) διάλεξε template ανάλογα με το level
+        //template level
         short[] baseTemplate;
         int[][] powerCells;
 
@@ -23,23 +23,23 @@ public class initLevel {
                 break;
         }
 
-        // 2) φτιάξε working copy (ώστε να μην πειράξεις μόνιμα το template)
+        //working copy (ώστε να μην πειράζω μόνιμα το template)
         m.levelDataWork = baseTemplate.clone();
 
-        // 3) βάλε preset POWER pellets για το συγκεκριμένο level
+        //POWER pellets for this level
         m.applyPowerPellets(m.levelDataWork, powerCells);
 
-        // 4) φόρτωσε screenData από το working copy
+        // load screenData from working copy
         System.arraycopy(m.levelDataWork, 0, m.screenData, 0, m.N_BLOCKS * m.N_BLOCKS);
 
-        // 5) reset power mode σε νέο level (προτείνεται)
+        // reset power mode to new level
         m.powerTicks = 0;
         m.ghostsEatenInPower = 0;
 
-        // 6) Εφάρμοσε scaling για το τρέχον level (ghost count + speed)
+        //scaling level (ghost count + speed)
         m.applyLevelScaling();
 
-        // Reset bonus life state per level
+        //Reset bonus life state per level
         m.bonusSpawnedThisLevel = false;
         m.bonusPos = -1;
         m.bonusActiveTicks = 0;

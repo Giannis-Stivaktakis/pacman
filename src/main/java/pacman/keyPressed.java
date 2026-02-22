@@ -12,9 +12,7 @@ public class keyPressed {
             System.exit(0);
         }
 
-        /* =========================
-           1. PAUSE / RESUME (P)
-           ========================= */
+        // PAUSE / RESUME (P)
         if (key == KeyEvent.VK_P) {
             if (m.state == model.GameState.RUNNING) {
                 m.state = model.GameState.PAUSED;
@@ -25,18 +23,14 @@ public class keyPressed {
             return;
         }
 
-        /* =========================
-           2. ESC -> MENU (χωρίς reset)
-           ========================= */
+        // MENU (Esc)
         if (key == KeyEvent.VK_ESCAPE) {
             m.state = model.GameState.INTRO;
             m.repaint();
             return;
         }
 
-        /* =========================
-           3. INTRO SCREEN CONTROLS
-           ========================= */
+        //INTRO SCREEN CONTROLS
         if (m.state == model.GameState.INTRO) {
 
             if (key == KeyEvent.VK_1) { m.difficulty = model.Difficulty.EASY;   m.difficultyChanged = true; m.repaint(); }
@@ -46,20 +40,20 @@ public class keyPressed {
             // SPACE = Continue / Start
             if (key == KeyEvent.VK_SPACE) {
 
-                // Αν δεν έχει ξεκινήσει ποτέ ή αν άλλαξες difficulty -> ξεκινά νέο game
+                // Αν δεν έχει ξεκινήσει ποτέ ή αλλαγή difficulty τότε ξεκινά νέο game
                 if (!m.hasStarted || m.difficultyChanged) {
                     m.restartGame(); // κάνει reset + initGame + state RUNNING
                     m.difficultyChanged = false;
                     return;
                 }
 
-                // Αλλιώς είναι Continue
+                // Αλλιώς Continue
                 m.state = model.GameState.RUNNING;
                 m.repaint();
                 return;
             }
 
-            // R = Restart (πάντα reset)
+            // R = Restart 
             if (key == KeyEvent.VK_R) {
                 m.restartGame();
                 return;
@@ -72,17 +66,13 @@ public class keyPressed {
             return;
         }
 
-        /* =========================
-           4. GLOBAL RESTART (μέσα στο παιχνίδι)
-           ========================= */
+        // global restart in game
         if (key == KeyEvent.VK_R) {
             m.restartGame();
             return;
         }
 
-        /* =========================
-           5. MOVEMENT (μόνο όταν RUNNING)
-           ========================= */
+        // MOVEMENT
         if (m.state != model.GameState.RUNNING) {
             return;
         }

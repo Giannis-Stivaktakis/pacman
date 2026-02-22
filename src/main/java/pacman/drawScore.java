@@ -8,8 +8,8 @@ public class drawScore {
 
     public static void drawScore(model m, Graphics2D g2d) {
 
-        int hudTop = m.SCREEN_SIZE + 3;        // αρχή της HUD ζώνης
-        int hudBaseline = m.SCREEN_SIZE + 20;  // γραμμή για το text
+        int hudTop = m.SCREEN_SIZE + 3;
+        int hudBaseline = m.SCREEN_SIZE + 20;  //text line
 
         g2d.drawString("Lvl: " + m.level, m.SCREEN_SIZE - 250, m.SCREEN_SIZE + 22);
         g2d.drawString("Diff: " + m.difficulty.name(), m.SCREEN_SIZE - 200, m.SCREEN_SIZE + 22);
@@ -17,12 +17,11 @@ public class drawScore {
         g2d.setFont(new Font("Monospaced", Font.BOLD, 14));
         g2d.setColor(Color.GREEN);
 
-        // Lives (hearts) μέσα στη HUD μπάρα
+        // Lives
         for (int i = 0; i < m.lives; i++) {
             g2d.drawImage(m.heart,
                     8 + i * 30,
-                    hudTop,
-                    m); // <-- αντί για this
+                    hudTop,m); //
         }
 
         if (m.powerTicks > 0) {
@@ -42,7 +41,7 @@ public class drawScore {
             g2d.drawString(String.format("POWER: %.1fs", secs), 10, 36);
         }
 
-        // Score μέσα στη HUD μπάρα (δεξιά)
+        // Score
         g2d.drawString("Score: " + m.score, m.SCREEN_SIZE - 110, hudBaseline);
     }
 }

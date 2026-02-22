@@ -16,14 +16,14 @@ public class drawGhost {
             int w = m.BLOCK_SIZE;
             int h = m.BLOCK_SIZE;
 
-            // σώμα (κεφάλι)
+            // head
             g2d.setColor(body);
             g2d.fillOval(x, y, w, h - 6);
 
-            // κάτω μέρος
+            // body
             g2d.fillRect(x, y + (h / 2), w, (h / 2) - 2);
 
-            // κυματάκια
+            // legs
             int baseY = y + h - 2;
             int step = w / 4;
             g2d.fillOval(x + 0 * step, baseY - 6, step + 2, 8);
@@ -31,7 +31,7 @@ public class drawGhost {
             g2d.fillOval(x + 2 * step, baseY - 6, step + 2, 8);
             g2d.fillOval(x + 3 * step, baseY - 6, step + 2, 8);
 
-            // μάτια
+            // eyes
             g2d.setColor(Color.WHITE);
             g2d.fillOval(x + 6, y + 8, 6, 6);
             g2d.fillOval(x + 14, y + 8, 6, 6);
@@ -43,7 +43,7 @@ public class drawGhost {
             return;
         }
 
-        // Κανονικό ghost
-        g2d.drawImage(m.ghost, x, y, m); // αντί για this
+        // normal ghost
+        g2d.drawImage(m.ghost, x, y, m);
     }
 }

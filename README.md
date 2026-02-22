@@ -6,8 +6,8 @@ A multi-level Pacman clone built in **Java (Swing)** using a Maven project struc
 
 ## Screenshots
 
-<img src="assets/intro.png" width="500"/>
-<img src="assets/gameplay.png" width="500"/>
+<img src="assets/Intro.png" width="500"/>
+<img src="assets/Gameplay.png" width="500"/>
 
 
 ##  Game Features

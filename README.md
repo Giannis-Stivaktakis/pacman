@@ -4,6 +4,16 @@ A multi-level Pacman clone built in **Java (Swing)** using a Maven project struc
 
 ---
 
+## Screenshots
+
+### Intro Screen
+![Intro](assets/intro.png)
+
+### Gameplay
+![Gameplay](assets/gameplay.png)
+
+---
+
 ##  Game Features
 
 ### Ghost AI

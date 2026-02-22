@@ -6,13 +6,11 @@ A multi-level Pacman clone built in **Java (Swing)** using a Maven project struc
 
 ## Screenshots
 
-## 📸 Screenshots
-
 ### Intro Screen
 ![Intro](assets/Intro.png)
 
 ### Gameplay
-![Gameplay](assets/Gameplay.png)
+![Gameplay](assets/gameplay.png)
 
 ---
 

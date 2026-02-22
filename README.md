@@ -52,9 +52,11 @@ A multi-level Pacman clone built in **Java (Swing)** using a Maven project struc
 - Maven
 
 ---
+
 ## Future Improvements
 -Sound effects & background music
 -High score persistence
+
 ---
 
 ## Run
